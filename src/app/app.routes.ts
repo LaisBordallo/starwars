@@ -12,7 +12,7 @@ import { SpeciesListComponent } from './system/species-list/species-list.compone
 import { SpeciesDetailComponent } from './system/species-detail/species-detail.component';
 import { VehicleListComponent } from './system/vehicle-list/vehicle-list.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'characters', component: CharacterListComponent },
   { path: 'characters/:id', component: CharacterDetailComponent },

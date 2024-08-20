@@ -14,14 +14,14 @@ export class SpeciesListComponent implements OnInit {
   constructor(private starWarsApiService: StarWarsApiService) {}
 
   ngOnInit(): void {
+    this.loadSpeciesList();
+  }
+
+  loadSpeciesList(): void {
     this.starWarsApiService.getSpecies().subscribe({
-      next: (data: any) => {
+      next: (data: Species[]) => {
         console.log('Species data:', data); // Log para verificar a resposta
-        if (data && Array.isArray(data.results)) {
-          this.species = data.results;
-        } else {
-          console.error('Unexpected response structure:', data);
-        }
+        this.species = data;
       },
       error: (err) => console.error('Error fetching species:', err)
     });

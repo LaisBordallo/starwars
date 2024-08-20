@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StarWarsApiService } from '../../shared/services/star-wars-api.service';
-import { Species } from '../../shared/models/species.model';
+import { SpeciesDetail } from '../../shared/models/species-detail.model'; // Atualize conforme necessário
 
 @Component({
   selector: 'app-species-detail',
@@ -10,7 +10,7 @@ import { Species } from '../../shared/models/species.model';
 })
 export class SpeciesDetailComponent implements OnInit {
   speciesId: string | null = null;
-  species: Species[] | undefined;
+  speciesDetail: SpeciesDetail | undefined; // Atualize conforme necessário
 
   constructor(
     private route: ActivatedRoute,
@@ -28,10 +28,10 @@ export class SpeciesDetailComponent implements OnInit {
 
   loadSpeciesDetails(): void {
     if (this.speciesId) {
-      this.starWarsApiService.getSpecies(this.speciesId).subscribe({
-        next: (data: Species[]) => {
-          console.log('Species detail data:', data); // Log para verificar a resposta
-          this.species = data;
+      this.starWarsApiService.getSpeciesDetail(Number(this.speciesId)).subscribe({
+        next: (data: SpeciesDetail) => {
+          console.log('Species detail data:', data);
+          this.speciesDetail = data;
         },
         error: (err) => console.error('Error fetching species details:', err)
       });

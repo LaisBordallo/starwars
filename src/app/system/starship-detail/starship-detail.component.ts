@@ -1,17 +1,16 @@
-// src/app/system/planet-detail/planet-detail.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StarWarsApiService } from '../../shared/services/star-wars-api.service';
-import { Planet } from '../../shared/models/planet.model';
+import { StarshipDetail } from '../../shared/models/starship-detail.model'; // Atualize conforme necessário
 
 @Component({
-  selector: 'app-planet-detail',
+  selector: 'app-starship-detail',
   templateUrl: './starship-detail.component.html',
   styleUrls: ['./starship-detail.component.scss']
 })
-export class PlanetDetailComponent implements OnInit {
-  planetId: number | null = null;
-  planet: Planet | undefined;
+export class StarshipDetailComponent implements OnInit {
+  starshipId: string | null = null;
+  starshipDetail: StarshipDetail | undefined; // Atualize conforme necessário
 
   constructor(
     private route: ActivatedRoute,
@@ -20,19 +19,21 @@ export class PlanetDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.planetId = Number(params.get('id'));
-      this.loadPlanetDetails();
+      this.starshipId = params.get('id');
+      if (this.starshipId) {
+        this.loadStarshipDetails();
+      }
     });
   }
 
-  loadPlanetDetails(): void {
-    if (this.planetId !== null) {
-      this.starWarsApiService.getStarshipDetail(this.planetId).subscribe({
-        next: (data: Planet) => {
-          console.log('Planet detail data:', data);
-          this.planet = data;
+  loadStarshipDetails(): void {
+    if (this.starshipId) {
+      this.starWarsApiService.getStarshipDetail(Number(this.starshipId)).subscribe({
+        next: (data: StarshipDetail) => {
+          console.log('Starship detail data:', data);
+          this.starshipDetail = data;
         },
-        error: (err) => console.error('Error fetching planet details:', err)
+        error: (err) => console.error('Error fetching starship details:', err)
       });
     }
   }

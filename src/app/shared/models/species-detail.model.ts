@@ -1,4 +1,5 @@
 export interface SpeciesDetail {
+    id: string
     name: string;
     classification: string;
     designation: string;

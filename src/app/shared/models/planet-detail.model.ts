@@ -10,5 +10,8 @@ export interface PlanetDetail {
     population: string;
     residents: string[];
     films: string[];
+    created: string | undefined;
+    edited: string | undefined;
+    url: string | undefined;
   }
   

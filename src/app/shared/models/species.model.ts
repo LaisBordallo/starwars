@@ -1,5 +1,6 @@
 // src/app/shared/models/species.model.ts
 export interface Species {
+    id: string | null;
     name: string;
     classification: string;
     designation: string;
@@ -9,5 +10,6 @@ export interface Species {
     hair_colors: string;
     skin_colors: string;
     language: string;
+    homeworld: string;
   }
   

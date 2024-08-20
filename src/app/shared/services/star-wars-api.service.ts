@@ -40,9 +40,9 @@ export class StarWarsApiService {
     return this.http.get<Film[]>(`${this.baseUrl}/films/`);
   }
 
-  getSpecies(speciesId: string): Observable<Species[]> {
-    return this.http.get<Species[]>(`${this.baseUrl}/species/`);
-  }
+  getSpecies(): Observable<Species[]> {
+    return this.http.get<Species[]>(`${this.baseUrl}/species/`);}
+
 
   getVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(`${this.baseUrl}/vehicles/`);
@@ -57,7 +57,7 @@ export class StarWarsApiService {
   }
   
   getPlanetDetail(id: number): Observable<PlanetDetail> {
-    return this.http.get<PlanetDetail>(`${this.baseUrl}/people/${id}/`);
+    return this.http.get<PlanetDetail>(`${this.baseUrl}/planets/${id}/`);
   }
 
   getSpeciesDetail(id: number): Observable<SpeciesDetail> {
