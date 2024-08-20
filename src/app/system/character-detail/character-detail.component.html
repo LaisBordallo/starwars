@@ -1,1 +1,14 @@
-<p>character-detail works!</p>
+<div class="character-detail">
+    <h2>Detalhes do Personagem</h2>
+    <div *ngIf="character">
+      <p><strong>Nome:</strong> {{ character?.name }}</p>
+      <p><strong>Altura:</strong> {{ character?.height }}</p>
+      <p><strong>Massa:</strong> {{ character?.mass }}</p>
+      <p><strong>Cor do Cabelo:</strong> {{ character?.hair_color }}</p>
+      <p><strong>Cor da Pele:</strong> {{ character?.skin_color }}</p>
+      <p><strong>Cor dos Olhos:</strong> {{ character?.eye_color }}</p>
+      <p><strong>Ano de Nascimento:</strong> {{ character?.birth_year }}</p>
+      <p><strong>Gênero:</strong> {{ character?.gender }}</p>
+    </div>
+  </div>
+  

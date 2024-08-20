@@ -11,6 +11,7 @@ import { SpeciesDetail } from '../../shared/models/species-detail.model'; // Atu
 export class SpeciesDetailComponent implements OnInit {
   speciesId: string | null = null;
   speciesDetail: SpeciesDetail | undefined; // Atualize conforme necessário
+species: any;
 
   constructor(
     private route: ActivatedRoute,

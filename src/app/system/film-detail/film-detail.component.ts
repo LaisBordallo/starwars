@@ -11,6 +11,7 @@ import { FilmDetail } from '../../shared/models/film-detail.model';
 export class FilmDetailComponent implements OnInit {
   filmId: string | null = null;
   film: FilmDetail | undefined;
+filmDetail: any;
 
   constructor(
     private route: ActivatedRoute,

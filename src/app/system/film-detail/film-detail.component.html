@@ -1,1 +1,9 @@
-<p>film-detail works!</p>
+<div class="film-detail">
+    <h2>Detalhes do Filme</h2>
+    <div *ngIf="filmDetail">
+      <p><strong>Título:</strong> {{ filmDetail?.title }}</p>
+      <p><strong>Diretor:</strong> {{ filmDetail?.director }}</p>
+      <p><strong>Produtor:</strong> {{ filmDetail?.producer }}</p>
+      <p><strong>Data de Lançamento:</strong> {{ filmDetail?.release_date }}</p>
+    </div>
+  </div>  

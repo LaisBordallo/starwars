@@ -1,1 +1,11 @@
-<p>vehicle-detail works!</p>
+<div class="vehicle-detail">
+    <h2>Detalhes do Veículo</h2>
+    <div *ngIf="vehicleDetail">
+      <p><strong>Nome:</strong> {{ vehicleDetail?.name }}</p>
+      <p><strong>Modelo:</strong> {{ vehicleDetail?.model }}</p>
+      <p><strong>Fabricante:</strong> {{ vehicleDetail?.manufacturer }}</p>
+      <p><strong>Custo:</strong> {{ vehicleDetail?.cost_in_credits }}</p>
+      <p><strong>Comprimento:</strong> {{ vehicleDetail?.length }}</p>
+    </div>
+  </div>
+  

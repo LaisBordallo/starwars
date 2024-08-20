@@ -1,1 +1,8 @@
-<p>planet-list works!</p>
+<div class="planet-list">
+    <h2>Planetas</h2>
+    <ul>
+      <li *ngFor="let planet of planets">
+        {{ planet.name }}
+      </li>
+    </ul>
+  </div>
