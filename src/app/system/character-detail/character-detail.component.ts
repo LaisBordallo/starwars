@@ -10,32 +10,18 @@ import { CharacterDetail } from '../../shared/models/character-detail.model';
   styleUrls: ['./character-detail.component.scss']
 })
 export class CharacterDetailComponent implements OnInit {
-  character: CharacterDetail | null = null;
-  characterId: number | null = null;
 
-  constructor(
-    private starWarsApiService: StarWarsApiService,
-    private route: ActivatedRoute
-  ) {}
+  character?: CharacterDetail;
+
+  constructor(private route: ActivatedRoute, private apiService: StarWarsApiService) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.characterId = +params['id']; // Obtém o ID do parâmetro da URL
-      if (this.characterId) {
-        this.loadCharacterDetails();
-      }
-    });
-  }
-
-  loadCharacterDetails(): void {
-    if (this.characterId !== null) {
-      this.starWarsApiService.getCharacterDetail(this.characterId).subscribe({
-        next: (data: CharacterDetail) => {
-          console.log('Character detail data:', data); // Log para verificar a resposta
-          this.character = data;
-        },
-        error: (err) => console.error('Error fetching character details:', err)
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.apiService.getCharacterDetail(+id).subscribe(data => {
+        this.character = data;
       });
     }
   }
 }
+

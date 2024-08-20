@@ -1,7 +1,6 @@
 <div class="species-list">
-  <h2>Espécies</h2>
   <ul>
-    <li *ngFor="let species of species">
+    <li *ngFor="let species of speciesList" (click)="viewSpecies(species.id)">
       {{ species.name }}
     </li>
   </ul>

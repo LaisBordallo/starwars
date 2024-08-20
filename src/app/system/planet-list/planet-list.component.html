@@ -1,8 +1,7 @@
 <div class="planet-list">
-    <h2>Planetas</h2>
-    <ul>
-      <li *ngFor="let planet of planets">
-        {{ planet.name }}
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li *ngFor="let planet of planets" (click)="viewPlanet(planet.id)">
+      {{ planet.name }}
+    </li>
+  </ul>
+</div>

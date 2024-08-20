@@ -1,9 +1,7 @@
 <div class="starship-list">
-    <h2>Naves Espaciais</h2>
-    <ul>
-      <li *ngFor="let starship of starships">
-        {{ starship.name }}
-      </li>
-    </ul>
-  </div>
-  
+  <ul>
+    <li *ngFor="let starship of starships" (click)="viewStarship(starship.id)">
+      {{ starship.name }}
+    </li>
+  </ul>
+</div>

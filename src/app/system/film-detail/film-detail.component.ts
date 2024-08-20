@@ -9,32 +9,16 @@ import { FilmDetail } from '../../shared/models/film-detail.model';
   styleUrls: ['./film-detail.component.scss']
 })
 export class FilmDetailComponent implements OnInit {
-  filmId: string | null = null;
-  film: FilmDetail | undefined;
-filmDetail: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private starWarsApiService: StarWarsApiService
-  ) {}
+  film?: FilmDetail;
+
+  constructor(private route: ActivatedRoute, private apiService: StarWarsApiService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.filmId = params.get('id');
-      if (this.filmId) {
-        this.loadFilmDetails();
-      }
-    });
-  }
-
-  loadFilmDetails(): void {
-    if (this.filmId) {
-      this.starWarsApiService.getFilmDetail(Number(this.filmId)).subscribe({
-        next: (data: FilmDetail) => {
-          console.log('Film detail data:', data); // Log para verificar a resposta
-          this.film = data;
-        },
-        error: (err) => console.error('Error fetching film details:', err)
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.apiService.getFilmDetail(+id).subscribe(data => {
+        this.film = data;
       });
     }
   }

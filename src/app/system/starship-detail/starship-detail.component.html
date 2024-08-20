@@ -1,10 +1,9 @@
 <div class="starship-detail">
-    <h2>Detalhes da Nave Espacial</h2>
-    <div *ngIf="starshipDetail">
-      <p><strong>Nome:</strong> {{ starshipDetail?.name }}</p>
-      <p><strong>Modelo:</strong> {{ starshipDetail?.model }}</p>
-      <p><strong>Fabricante:</strong> {{ starshipDetail?.manufacturer }}</p>
-      <p><strong>Custo:</strong> {{ starshipDetail?.cost_in_credits }}</p>
-      <p><strong>Comprimento:</strong> {{ starshipDetail?.length }}</p>
-    </div>
-  </div>
+  <h1>{{ starship?.name }}</h1>
+  <p>Model: {{ starship?.model }}</p>
+  <p>Manufacturer: {{ starship?.manufacturer }}</p>
+  <p>Cost: {{ starship?.cost_in_credits }}</p>
+  <p>Crew: {{ starship?.crew }}</p>
+  <p>Passengers: {{ starship?.passengers }}</p>
+  <!-- Add more fields as needed -->
+</div>

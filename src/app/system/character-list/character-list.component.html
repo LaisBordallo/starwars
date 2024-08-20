@@ -1,10 +1,7 @@
-<!-- src/app/system/character-list/character-list.component.html -->
 <div class="character-list">
-    <h2>Personagens</h2>
-    <ul>
-      <li *ngFor="let character of characters">
-        {{ character.name }} - {{ character.gender }}
-      </li>
-    </ul>
-  </div>
-  
+  <ul>
+    <li *ngFor="let character of characters" (click)="viewCharacter(character.id)">
+      {{ character.name }}
+    </li>
+  </ul>
+</div>

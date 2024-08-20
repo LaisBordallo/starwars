@@ -1,7 +1,6 @@
 <div class="vehicle-list">
-  <h2>Veículos</h2>
   <ul>
-    <li *ngFor="let vehicle of vehicles">
+    <li *ngFor="let vehicle of vehicles" (click)="viewVehicle(vehicle.id)">
       {{ vehicle.name }}
     </li>
   </ul>

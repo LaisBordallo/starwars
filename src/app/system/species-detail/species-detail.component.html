@@ -1,11 +1,8 @@
 <div class="species-detail">
-    <h2>Detalhes da Espécie</h2>
-    <div *ngIf="species">
-      <p><strong>Nome:</strong> {{ species?.name }}</p>
-      <p><strong>Classificação:</strong> {{ species?.classification }}</p>
-      <p><strong>Cor da Pele:</strong> {{ species?.skin_color }}</p>
-      <p><strong>Cor dos Olhos:</strong> {{ species?.eye_color }}</p>
-      <p><strong>Esperança de Vida:</strong> {{ species?.average_lifespan }}</p>
-    </div>
-  </div>
-  
+  <h1>{{ species?.name }}</h1>
+  <p>Classification: {{ species?.classification }}</p>
+  <p>Designation: {{ species?.designation }}</p>
+  <p>Average Height: {{ species?.average_height }}</p>
+  <p>Average Lifespan: {{ species?.average_lifespan }}</p>
+  <!-- Add more fields as needed -->
+</div>

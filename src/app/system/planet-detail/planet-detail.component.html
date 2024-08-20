@@ -1,10 +1,9 @@
 <div class="planet-detail">
-    <h2>Detalhes do Planeta</h2>
-    <div *ngIf="planetDetail">
-      <p><strong>Nome:</strong> {{ planetDetail?.name }}</p>
-      <p><strong>Clima:</strong> {{ planetDetail?.climate }}</p>
-      <p><strong>Terreno:</strong> {{ planetDetail?.terrain }}</p>
-      <p><strong>População:</strong> {{ planetDetail?.population }}</p>
-    </div>
-  </div>
-  
+  <h1>{{ planet?.name }}</h1>
+  <p>Climate: {{ planet?.climate }}</p>
+  <p>Terrain: {{ planet?.terrain }}</p>
+  <p>Population: {{ planet?.population }}</p>
+  <p>Diameter: {{ planet?.diameter }}</p>
+  <p>Gravity: {{ planet?.gravity }}</p>
+  <!-- Add more fields as needed -->
+</div>

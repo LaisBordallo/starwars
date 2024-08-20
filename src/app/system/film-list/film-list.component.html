@@ -1,7 +1,6 @@
 <div class="film-list">
-  <h2>Filmes</h2>
   <ul>
-    <li *ngFor="let film of films">
+    <li *ngFor="let film of films" (click)="viewFilm(film.id)">
       {{ film.title }}
     </li>
   </ul>

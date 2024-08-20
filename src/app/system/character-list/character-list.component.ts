@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarsApiService } from '../../shared/services/star-wars-api.service';
 import { Character } from '../../shared/models/character.model';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-character-list',
@@ -8,21 +10,19 @@ import { Character } from '../../shared/models/character.model';
   styleUrls: ['./character-list.component.scss']
 })
 export class CharacterListComponent implements OnInit {
+
   characters: Character[] = [];
 
-  constructor(private starWarsApiService: StarWarsApiService) {}
+  constructor(private apiService: StarWarsApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.starWarsApiService.getPeople().subscribe({
-      next: (data: any) => {
-        console.log('Character data:', data);
-        if (data && Array.isArray(data.results)) {
-          this.characters = data.results;
-        } else {
-          console.error('Unexpected response structure:', data);
-        }
-      },
-      error: (err) => console.error('Error fetching characters:', err)
+    this.apiService.getPeople().subscribe(data => {
+      this.characters = data;
     });
   }
+
+  viewCharacter(id: number): void {
+    this.router.navigate(['/characters', id]);
+  }
 }
+

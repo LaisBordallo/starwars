@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarsApiService } from '../../shared/services/star-wars-api.service';
 import { Planet } from '../../shared/models/planet.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planet-list',
@@ -8,21 +9,18 @@ import { Planet } from '../../shared/models/planet.model';
   styleUrls: ['./planet-list.component.scss']
 })
 export class PlanetListComponent implements OnInit {
+
   planets: Planet[] = [];
 
-  constructor(private starWarsApiService: StarWarsApiService) {}
+  constructor(private apiService: StarWarsApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.starWarsApiService.getPlanets().subscribe({
-      next: (data: any) => {
-        console.log('Planet data:', data);
-        if (data && Array.isArray(data.results)) {
-          this.planets = data.results;
-        } else {
-          console.error('Unexpected response structure:', data);
-        }
-      },
-      error: (err) => console.error('Error fetching planets:', err)
+    this.apiService.getPlanets().subscribe(data => {
+      this.planets = data;
     });
+  }
+
+  viewPlanet(id: number): void {
+    this.router.navigate(['/planets', id]);
   }
 }

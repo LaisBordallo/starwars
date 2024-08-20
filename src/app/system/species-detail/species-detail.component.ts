@@ -9,32 +9,16 @@ import { SpeciesDetail } from '../../shared/models/species-detail.model'; // Atu
   styleUrls: ['./species-detail.component.scss']
 })
 export class SpeciesDetailComponent implements OnInit {
-  speciesId: string | null = null;
-  speciesDetail: SpeciesDetail | undefined; // Atualize conforme necessário
-species: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private starWarsApiService: StarWarsApiService
-  ) {}
+  species?: SpeciesDetail;
+
+  constructor(private route: ActivatedRoute, private apiService: StarWarsApiService) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.speciesId = params.get('id');
-      if (this.speciesId) {
-        this.loadSpeciesDetails();
-      }
-    });
-  }
-
-  loadSpeciesDetails(): void {
-    if (this.speciesId) {
-      this.starWarsApiService.getSpeciesDetail(Number(this.speciesId)).subscribe({
-        next: (data: SpeciesDetail) => {
-          console.log('Species detail data:', data);
-          this.speciesDetail = data;
-        },
-        error: (err) => console.error('Error fetching species details:', err)
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.apiService.getSpeciesDetail(+id).subscribe(data => {
+        this.species = data;
       });
     }
   }

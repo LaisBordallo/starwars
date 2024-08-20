@@ -41,8 +41,8 @@ export class StarWarsApiService {
   }
 
   getSpecies(): Observable<Species[]> {
-    return this.http.get<Species[]>(`${this.baseUrl}/species/`);}
-
+    return this.http.get<Species[]>(`${this.baseUrl}/species/`);
+  }
 
   getVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(`${this.baseUrl}/vehicles/`);
@@ -53,7 +53,7 @@ export class StarWarsApiService {
   }
 
   getFilmDetail(id: number): Observable<FilmDetail> {
-    return this.http.get<FilmDetail>(`${this.baseUrl}/people/${id}/`);
+    return this.http.get<FilmDetail>(`${this.baseUrl}/films/${id}/`);
   }
   
   getPlanetDetail(id: number): Observable<PlanetDetail> {
@@ -61,14 +61,14 @@ export class StarWarsApiService {
   }
 
   getSpeciesDetail(id: number): Observable<SpeciesDetail> {
-    return this.http.get<SpeciesDetail>(`${this.baseUrl}/people/${id}/`);
+    return this.http.get<SpeciesDetail>(`${this.baseUrl}/species/${id}/`);
   }
 
   getStarshipDetail(id: number): Observable<StarshipDetail> {
-    return this.http.get<StarshipDetail>(`${this.baseUrl}/people/${id}/`);
+    return this.http.get<StarshipDetail>(`${this.baseUrl}/starships/${id}/`);
   }
 
   getVehicleDetail(id: number): Observable<VehicleDetail> {
-    return this.http.get<VehicleDetail>(`${this.baseUrl}/people/${id}/`);
+    return this.http.get<VehicleDetail>(`${this.baseUrl}/vehicles/${id}/`);
   }
 }

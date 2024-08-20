@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StarWarsApiService } from '../../shared/services/star-wars-api.service';
 import { Film } from '../../shared/models/film.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-film-list',
@@ -9,21 +10,18 @@ import { Film } from '../../shared/models/film.model';
   styleUrls: ['./film-list.component.scss']
 })
 export class FilmListComponent implements OnInit {
+
   films: Film[] = [];
 
-  constructor(private starWarsApiService: StarWarsApiService) {}
+  constructor(private apiService: StarWarsApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.starWarsApiService.getFilms().subscribe({
-      next: (data: any) => {
-        console.log('Film data:', data); // Log para verificar a resposta
-        if (data && Array.isArray(data.results)) {
-          this.films = data.results;
-        } else {
-          console.error('Unexpected response structure:', data);
-        }
-      },
-      error: (err) => console.error('Error fetching films:', err)
+    this.apiService.getFilms().subscribe(data => {
+      this.films = data;
     });
+  }
+
+  viewFilm(id: number): void {
+    this.router.navigate(['/films', id]);
   }
 }

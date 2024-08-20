@@ -1,40 +1,16 @@
-<section class="sidelist-section flex mt-16">
-    <!-- Lista Lateral -->
-    <div class="sidelist bg-gray-800 text-white w-1/4 p-4">
-      <button
-        aria-current="true"
-        type="button"
-        class="sidelist-button">
-        Componente 1
-      </button>
-      <button
-        type="button"
-        class="sidelist-button">
-        Componente 2
-      </button>
-      <button
-        type="button"
-        class="sidelist-button">
-        Componente 3
-      </button>
-      <!-- Adicione mais botões conforme necessário -->
+<section class="sidelist">
+  <div class="sidelist-system">
+    <div class="sidelist-bar">
+    <div class="sidelist-buttons">
+      <button (click)="navigateTo('/characters')">Characters</button>
+      <button (click)="navigateTo('/planets')">Planets</button>
+      <button (click)="navigateTo('/starships')">Starships</button>
+      <button (click)="navigateTo('/films')">Films</button>
+      <button (click)="navigateTo('/species')">Species</button>
+      <button (click)="navigateTo('/vehicles')">Vehicles</button>  
     </div>
-  
-    <!-- Área de Conteúdo -->
-    <div class="sidelist-content w-3/4 p-4">
-      <div id="component1" class="content-item">
-        <h2>Componente 1</h2>
-        <p>Informações detalhadas sobre o Componente 1.</p>
-      </div>
-      <div id="component2" class="content-item hidden">
-        <h2>Componente 2</h2>
-        <p>Informações detalhadas sobre o Componente 2.</p>
-      </div>
-      <div id="component3" class="content-item hidden">
-        <h2>Componente 3</h2>
-        <p>Informações detalhadas sobre o Componente 3.</p>
-      </div>
-      <!-- Adicione mais divs de conteúdo conforme necessário -->
     </div>
-  </section>
-  
+</div>
+  <div class="sidelist-content">
+  </div>
+</section>
