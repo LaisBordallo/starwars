@@ -1,0 +1,29 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  height: 100vh; /* Ocupa a altura total da viewport */
+  position: relative;
+  z-index: 10; /* Garante que o conteúdo fique sobre o vídeo */
+  text-align: center;
+  color: #ffffffb0;
+  padding: 2rem;
+}
+
+.home-container h1, .home-container p {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.home-container h1 {
+  font-size: 5rem; /* Ajuste conforme necessário */
+  font-weight: 300; /* Fonte fina */
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombreamento delicado */
+}
+
+.home-container p {
+  font-size: 1.25rem; /* Ajuste conforme necessário */
+  font-weight: 300; /* Fonte fina */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombreamento delicado */
+}
