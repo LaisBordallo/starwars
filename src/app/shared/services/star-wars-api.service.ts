@@ -8,11 +8,18 @@ import { Starship } from '../models/starship.model';
 import { Film } from '../models/film.model';
 import { Species } from '../models/species.model';
 import { Vehicle } from '../models/vehicle.model';
+import { CharacterDetail } from '../models/character-detail.model';
+import { FilmDetail } from '../models/film-detail.model';
+import { PlanetDetail } from '../models/planet-detail.model';
+import { SpeciesDetail } from '../models/species-detail.model';
+import { StarshipDetail } from '../models/starship-detail.model';
+import { VehicleDetail } from '../models/vehicle-detail.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StarWarsApiService {
+  
   private readonly baseUrl = 'https://swapi.dev/api';
 
   constructor(private http: HttpClient) {}
@@ -33,11 +40,35 @@ export class StarWarsApiService {
     return this.http.get<Film[]>(`${this.baseUrl}/films/`);
   }
 
-  getSpecies(): Observable<Species[]> {
+  getSpecies(speciesId: string): Observable<Species[]> {
     return this.http.get<Species[]>(`${this.baseUrl}/species/`);
   }
 
   getVehicles(): Observable<Vehicle[]> {
     return this.http.get<Vehicle[]>(`${this.baseUrl}/vehicles/`);
+  }
+
+  getCharacterDetail(id: number): Observable<CharacterDetail> {
+    return this.http.get<CharacterDetail>(`${this.baseUrl}/people/${id}/`);
+  }
+
+  getFilmDetail(id: number): Observable<FilmDetail> {
+    return this.http.get<FilmDetail>(`${this.baseUrl}/people/${id}/`);
+  }
+  
+  getPlanetDetail(id: number): Observable<PlanetDetail> {
+    return this.http.get<PlanetDetail>(`${this.baseUrl}/people/${id}/`);
+  }
+
+  getSpeciesDetail(id: number): Observable<SpeciesDetail> {
+    return this.http.get<SpeciesDetail>(`${this.baseUrl}/people/${id}/`);
+  }
+
+  getStarshipDetail(id: number): Observable<StarshipDetail> {
+    return this.http.get<StarshipDetail>(`${this.baseUrl}/people/${id}/`);
+  }
+
+  getVehicleDetail(id: number): Observable<VehicleDetail> {
+    return this.http.get<VehicleDetail>(`${this.baseUrl}/people/${id}/`);
   }
 }

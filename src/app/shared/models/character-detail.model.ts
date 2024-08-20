@@ -1,4 +1,4 @@
-export interface Character {
+export interface CharacterDetail {
     name: string;
     height: string;
     mass: string;
@@ -9,11 +9,7 @@ export interface Character {
     gender: string;
     homeworld: string;
     films: string[];
-    species: string[];
-    vehicles: string[];
+    species: string[]; 
+    vehicles: string[]; 
     starships: string[];
-    created: string;
-    edited: string;
-    url: string;
-  }
-  
+  }  

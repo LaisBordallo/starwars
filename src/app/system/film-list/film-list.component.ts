@@ -14,8 +14,16 @@ export class FilmListComponent implements OnInit {
   constructor(private starWarsApiService: StarWarsApiService) {}
 
   ngOnInit(): void {
-    this.starWarsApiService.getFilms().subscribe((data: Film[]) => {
-      this.films = data;
+    this.starWarsApiService.getFilms().subscribe({
+      next: (data: any) => {
+        console.log('Film data:', data); // Log para verificar a resposta
+        if (data && Array.isArray(data.results)) {
+          this.films = data.results;
+        } else {
+          console.error('Unexpected response structure:', data);
+        }
+      },
+      error: (err) => console.error('Error fetching films:', err)
     });
   }
 }

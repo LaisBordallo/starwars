@@ -14,8 +14,16 @@ export class VehicleListComponent implements OnInit {
   constructor(private starWarsApiService: StarWarsApiService) {}
 
   ngOnInit(): void {
-    this.starWarsApiService.getVehicles().subscribe((data: Vehicle[]) => {
-      this.vehicles = data;
+    this.starWarsApiService.getVehicles().subscribe({
+      next: (data: any) => {
+        console.log('Vehicle data:', data); // Log para verificar a resposta
+        if (data && Array.isArray(data.results)) {
+          this.vehicles = data.results;
+        } else {
+          console.error('Unexpected response structure:', data);
+        }
+      },
+      error: (err) => console.error('Error fetching vehicles:', err)
     });
   }
 }
