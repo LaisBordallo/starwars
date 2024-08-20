@@ -1,17 +1,11 @@
-<!-- app.component.html -->
 <main class="relative min-h-screen flex flex-col">
-  <!-- Video background -->
-  <video autoplay muted loop>
-    <source src="assets/videos/baby-yoda.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <app-navbar></app-navbar>
 
-  <!-- Main content -->
   <div class="app-container">
-    <app-navbar></app-navbar>
-    <div class="main-content">
-      <router-outlet></router-outlet>
-    </div>
-    <app-footer></app-footer>
+    <app-home></app-home>
+    <app-sidelist></app-sidelist>
+    <app-footer></app-footer>    
   </div>
+  
+  <router-outlet></router-outlet>
 </main>
